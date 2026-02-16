@@ -3,7 +3,7 @@ import Loading from '../utilities/Loading'
 import { restBase } from '../utilities/Utilities'
 
 const Home = () => {
-    const restPath = restBase + ''
+    const restPath = restBase + 'pages?slug=home'
     const [restData, setData] = useState([])
     const [isLoaded, setLoadStatus] = useState(false)
 
@@ -12,7 +12,7 @@ const Home = () => {
             const response = await fetch(restPath)
             if ( response.ok ) {
                 const data = await response.json()
-                setData(data)
+                setData(data[0])
                 setLoadStatus(true)
             } else {
                 setLoadStatus(false)
